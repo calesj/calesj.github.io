@@ -3,19 +3,19 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Samuel
-middle_name: S.
-last_name: Marques
-email: samuel.s.marques@protonmail.com
-description: Samuel Marques' portfolio
+first_name: Cales
+middle_name: J.
+last_name: Rodrigues
+email: cales.j.rodrigues@gmail.com
+description: Cales Junes portfolio
 footer_text: >
   Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: samuel marques, samuel, samuel developer, dev, development, developer, software development, app development, samuel app developer, samuel s marques, samuel-s-marques, portfolio-website, portfolio, website, personal-website, projects, dev
+keywords: samuel marques, samuel, samuel developer, dev, development, developer, software development, app development, samuel app developer, samuel s marques, cales-junes, portfolio-website, portfolio, website, personal-website, projects, dev
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🔥 # the emoji used as the favicon
-url: https://samuel-s-marques.github.io # the base hostname & protocol for your site
+url: https://cales-junes.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path:  # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
@@ -47,19 +47,19 @@ max_width: 800px
 # Display links to the page with a preview object on social media.
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: true #include Schema.org in the HTML head
-og_image: https://samuel-s-marques.github.io/assets/img/prof_pic_wide.jpg
+og_image: https://cales-junes.github.io/assets/img/prof_pic_wide.jpg
 
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------
 
-github_username: samuel-s-marques # your GitHub user name
+github_username: calesj # your GitHub user name
 gitlab_username: # your GitLab user name
 twitter_username: # your Twitter handle
-linkedin_username: samuel-s-marques # your LinkedIn user name
+linkedin_username: cales-junes # your LinkedIn user name
 scholar_userid: # your Google Scholar ID
 orcid_id: # your ORCID ID
-medium_username: samuel_marques
+medium_username: cales
 quora_username: # your Quora username
 publons_id: # your ID on Publons
 research_gate_profile: # your profile on ResearchGate
@@ -69,7 +69,7 @@ keybase_username: # your keybase user name
 wikidata_id: # your wikidata id
 dblp_url: # your DBLP profile url
 stackoverflow_id: #your stackoverflow id
-artstation: samuel-marques
+artstation: #
 
 contact_note: 
 

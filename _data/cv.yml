@@ -2,114 +2,88 @@
   type: map
   contents:
     - name: Full name
-      value: Samuel Sobreira Marques
+      value: Cales Junes Rodrigues
     - name: Contact
-      value: samuel.s.marques@protonmail.com
+      value: cales.j.rodrigues@gmail.com
     - name: Languages
-      value: Portuguese (native), English (intermediate)
+      value: Portuguese (native), English (basic/intermediate)
 
 - title: Work Experience
   type: table
   contents:
-    - title: 'Junior software developer at Croma Recursos Humanos'
-      year: 'Aug 21 - Jun 22'
+    - title: 'Trainee software developer at Covenant IT'
+      year: 'Aug 03 - Currently'
       location: São Paulo
       description:
-        - 'Developing a human resources app that aimed to help companies hire people.'
-        - 'Used Flutter, Firebase, Google Maps API, Google API'
+        - "Developing API's and interface's to facilitate data delivery or query"
+        - 'Used Laravel, Lumen, Vuetify'
 
-- title: Honors and Awards
+- title: Honors
   type: table
   contents:
     - title: 'CEAP - Centro Educacional Assistencial Profissionalizante'
       year: '2019'
       items:
-        - '1st place (2019) in the Innovation and Science Fair, of CEAP, with the project: "Artificial Psychology". The project consists of a chatbot that aims to help people with depression and anxiety, through conversation.'
-
+        - 'Participation in the CEAP Innovation and Science Fair, with the project: "App Security".'
 - title: Courses
   type: table-courses
   contents:
     - title: Alura
       year: '2022'
       items:
-        - name: 'Persistência com Flutter: crie um app com armazenamento interno'
-          link: https://cursos.alura.com.br/certificate/8d906f22-1093-4a1f-9f32-2b5afb898d55
+        - name: 'LARAVEL PARTE 1: PRODUTIVIDADE NO DESENVOLVIMENTO WEB'
+          link: https://cursos.alura.com.br/certificate/cales-junes/laravel-produtividade-desenvolvimento-web
           linkname: 'cert'
     - title: Google
       year: '2022'
       items:
-        - name: 'Foundations of User Experience (UX) Design'
-          link: https://www.coursera.org/account/accomplishments/certificate/5N8FCAUT6HQB
+        - name: 'LARAVEL PARTE 2: TRABALHANDO COM AUTENTICAÇÃO, RELACIONAMENTOS E TESTES'
+          link: https://cursos.alura.com.br/certificate/cales-junes/laravel-autenticacao-relacionamentos-testes
           linkname: 'cert'
     - title: Alura
       year: '2022'
       items:
-        - name: 'Python para Data Science: Primeiros passos'
-          link: https://cursos.alura.com.br/certificate/ef9b7711-5c14-42db-a549-9b359fd686e6
+        - name: 'HTTP: ENTENDENDO A WEB POR BAIXO DOS PANOS'
+          link: https://cursos.alura.com.br/certificate/cales-junes/http-fundamentos
           linkname: 'cert'
     - title: Alura
       year: '2021'
       items:
-        - name: 'Layouts Responsivos: Trabalhando com layouts mobile'
-          link: https://cursos.alura.com.br/certificate/9519b03a-f65e-4645-81e2-2819bbc09177
+        - name: 'AVANÇANDO COM ORIENTAÇÃO A OBJETOS COM PHP: HERANÇA, POLIMORFISMO E INTERFACES'
+          link: https://cursos.alura.com.br/certificate/cales-junes/php-oo-heranca-polimorfirmo-interfaces
           linkname: 'cert'
     - title: Alura
       year: '2021'
       items:
-        - name: 'Blockchain para Negócios: aplciações e cases reais'
-          link: https://cursos.alura.com.br/certificate/a242fca5-be3c-466b-ae38-3cc798ae4f2a
+        - name: 'CONSULTAS SQL: AVANÇANDO NO SQL COM MYSQL'
+          link: https://cursos.alura.com.br/certificate/cales-junes/mysql-consultas-sql
           linkname: 'cert'
     - title: Alura
       year: '2021'
       items:
-        - name: 'Criando widgets, páginas e navegação com Flutter'
-          link: https://cursos.alura.com.br/certificate/25ee3b40-8909-4f6b-b750-7c0279c56308
+        - name: 'PHP E MYSQL: CRIANDO UMA WEBAPP'
+          link: https://cursos.alura.com.br/certificate/cales-junes/php-mysql
           linkname: 'cert'
     - title: Alura
       year: '2021'
       items:
-        - name: 'Flutter: Crie e valide formulários para aumentar conversões'
-          link: https://cursos.alura.com.br/certificate/028b86f7-9387-49ba-aced-6f0d0faf07a7
+        - name: 'VUE.JS PARTE 1: CONSTRUINDO SINGLE PAGE APPLICATIONS'
+          link: https://cursos.alura.com.br/certificate/cales-junes/vue-parte1
           linkname: 'cert'
     - title: Alura
       year: '2021'
       items:
-        - name: 'Flutter: Desenvolva o layout para uma aplicação'
-          link: https://cursos.alura.com.br/certificate/2b46cfba-2d93-4449-b4df-570822723b61
-          linkname: 'cert'
-    - title: Alura
-      year: '2021'
-      items:
-        - name: 'Fundamentos de Flutter: Crie o seu primeiro App'
-          link: https://cursos.alura.com.br/certificate/ab8634df-e40c-4aa8-9347-123b89da5732
-          linkname: 'cert'
-    - title: Cybrary
-      year: '2021'
-      items:
-        - name: 'Introduction to IT & Cybersecurity'
-          link: https://app.cybrary.it/courses/api/certificate/CC-48dc4d66-ee4a-4c79-8c40-6b5fb516f3fb/view
-          linkname: 'cert'
-    - title: Data Science Academy
-      year: '2020'
-      items:
-        - name: 'Inteligência Artificial Fundamentos'
-          link: https://www.datascienceacademy.com.br/certificate/5b4ed2885e4cdee2138b45a0/user/5ef4fcb5e32fc350d45effd1
-          linkname: 'cert'
-    - title: Data Science Academy
-      year: '2020'
-      items:
-        - name: 'Introdução à Ciência de Dados 2.0'
-          link: https://www.datascienceacademy.com.br/certificate/57e4c96f47d7dd071b8b456b/user/5ef4fcb5e32fc350d45effd1
+        - name: 'PYTHON: COMEÇANDO COM A LINGUAGEM'
+          link: https://cursos.alura.com.br/certificate/cales-junes/python-introducao-a-linguagem
           linkname: 'cert'
 
 - title: Skills
   type: list
   contents: 
-    - '<b>Programming languages</b>: JavaScript, Dart, PHP.'
+    - '<b>Programming languages</b>: PHP, Javascript.'
     - '<b>Knowledge</b> of web development, Java, Python, Vue.'
-    - '<b>Microcontroller programming experience</b>: Arduino.'
 
 - title: Other Interests
   type: list
   contents: 
-    - '<b>Hobbies</b>: Astronomy, movies, music, games'
+    - "<b>Hobbies</b>: Movies, music, games, esport's."
