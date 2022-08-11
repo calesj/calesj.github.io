@@ -4,7 +4,7 @@ title: Weather-map
 description: Weather-map application web. 
 img: assets/img/weather_app/image1.png
 importance: 1
-category: apps
+category: websites
 ---
 
 Weather-map application using: <a href="https://openweathermap.org/">Weather Map Api</a>

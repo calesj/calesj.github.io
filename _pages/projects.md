@@ -4,7 +4,7 @@ title: projects
 permalink: /projects/
 description: A growing collection of my cool projects.
 nav: true
-display_categories: [apps, websites, misc]
+display_categories: [websites]
 horizontal: false
 ---
 

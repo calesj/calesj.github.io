@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Blog
-description: A simple node.js blog application
+description: A simple php blog application
 img: assets/img/blog/image1.png
 importance: 2
 category: websites

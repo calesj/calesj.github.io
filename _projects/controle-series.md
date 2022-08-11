@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Blog
-description: A simple node.js blog application
+title: Series-Controller
+description: A simple system with login and password, to series controller
 img: assets/img/series-controller/allSeries.png
 importance: 2
 category: websites
