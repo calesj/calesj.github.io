@@ -29,19 +29,19 @@
   type: table-courses
   contents:
     - title: Alura
-      year: '2022'
+      year: '2021'
       items:
         - name: 'LARAVEL PARTE 1: PRODUTIVIDADE NO DESENVOLVIMENTO WEB'
           link: https://cursos.alura.com.br/certificate/cales-junes/laravel-produtividade-desenvolvimento-web
           linkname: 'cert'
     - title: Alura
-      year: '2022'
+      year: '2021'
       items:
         - name: 'LARAVEL PARTE 2: TRABALHANDO COM AUTENTICAÇÃO, RELACIONAMENTOS E TESTES'
           link: https://cursos.alura.com.br/certificate/cales-junes/laravel-autenticacao-relacionamentos-testes
           linkname: 'cert'
     - title: Alura
-      year: '2022'
+      year: '2021'
       items:
         - name: 'HTTP: ENTENDENDO A WEB POR BAIXO DOS PANOS'
           link: https://cursos.alura.com.br/certificate/cales-junes/http-fundamentos
