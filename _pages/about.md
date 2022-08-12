@@ -20,6 +20,6 @@ full stack trainee web developer. I am currently learning Laravel and open to ne
 
 I have been working with technology for 1 year. Currently as a web developer at Covenant IT, developing REST APIs in Lumen and UI interface in Vuetify.
 
-As a way to challenge myself, I developed some applications such as a weather map and blog
+As a way to challenge myself, I developed some applications such as a <code>weather map</code> and <code>blog</code>
 
 I live in São Paulo, Brazil with my family.
