@@ -9,6 +9,11 @@
     font-family: "Poppins", "sans-serif";
 }
 
+html, body{
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .background {
     background-image: url(../images/background.png);
     background-size: cover;
@@ -205,7 +210,7 @@ aside{
 
 .text-sobre h5{
     letter-spacing: 2px;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 25px;
     text-transform: capitalize;
 }
@@ -360,7 +365,7 @@ footer p{
     }
 }
 
-@media screen and (max-width:375px){
+@media screen and (max-width:412px){
     .icon-menu .menu {
         display: block;
     }
@@ -442,4 +447,12 @@ footer p{
         font-size: 22px;
     }
 
+    .card{
+        height: 450px;
+    }
+    .card p {
+            text-align: center;
+            margin-left: 10px;
+            width: 300px;
+        }
 }
