@@ -1,135 +1,973 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cales Junes · PHP Developer</title>
+  <meta name="description" content="Desenvolvedor Back-end com mais de 5 anos de experiência em PHP e Laravel, especializado em APIs RESTful escaláveis e arquiteturas multi-tenant.">
+  <link href="./output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0B0F;
+      --surface: #151519;
+      --surface-2: #1E1E26;
+      --accent: #00D4B1;
+      --amber: #FFB800;
+      --text: #F0EDE6;
+      --muted: #7A7A8C;
+      --border: #262630;
+    }
 
-            <!-- Primary Meta Tags -->
-        <title>Portfolio - Cales Junes</title>
-        <meta name="title" content="Portfolio - Cales Junes">
-        <meta name="description" content="Olá, eu sou um desenvolvedor Full Stack PHP, com experiência em Laravel e Nuxt.js, e atualmente estou aprendendo React e Next.js.">
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://calesj.github.io/">
-        <meta property="og:title" content="Portfolio - Cales Junes">
-        <meta property="og:description" content="Olá, eu sou um desenvolvedor Full Stack PHP, com experiência em Laravel e Nuxt.js, e atualmente estou aprendendo React e Next.js.">
-        <meta property="og:image" content="https://calesj.github.io/images/background.webp">
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
 
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="https://calesj.github.io/">
-        <meta property="twitter:title" content="Portfolio - Cales Junes">
-        <meta property="twitter:description" content="Olá, eu sou um desenvolvedor Full Stack PHP, com experiência em Laravel e Nuxt.js, e atualmente estou aprendendo React e Next.js.">
-        <meta property="twitter:image" content="https://calesj.github.io/images/background.webp">
+    /* Noise grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Cales Junes</title>
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    .font-display { font-family: 'Bricolage Grotesque', sans-serif; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: 'DM Sans', monospace;
+    }
+
+    /* Dot grid background */
+    .dot-grid {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+
+    /* Hero gradient mesh */
+    .hero-mesh {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 75% 35%, rgba(0,212,177,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(255,184,0,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Photo frame accent */
+    .photo-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 12px -12px -12px 12px;
+      border: 1.5px solid rgba(0,212,177,0.4);
+      border-radius: 14px;
+      z-index: -1;
+    }
+
+    /* Skill tag */
+    .skill-tag {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: #A8A8B8;
+      font-size: 0.775rem;
+      padding: 3px 11px;
+      border-radius: 100px;
+      transition: border-color 0.2s, color 0.2s;
+      line-height: 1.6;
+    }
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Experience + project cards */
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: border-color 0.3s;
+    }
+    .exp-card:hover { border-color: rgba(0,212,177,0.35); }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: border-color 0.3s, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .project-card:hover {
+      border-color: rgba(0,212,177,0.4);
+      transform: translateY(-5px);
+    }
+
+    /* Contact link item */
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-decoration: none;
+      transition: border-color 0.25s;
+    }
+    .contact-link:hover { border-color: var(--accent); }
+    .contact-link:hover .contact-label { color: var(--accent); }
+
+    .contact-label {
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.25s;
+    }
+
+    /* Timeline line */
+    .timeline-line {
+      position: absolute;
+      left: 31px;
+      top: 60px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      opacity: 0.25;
+    }
+
+    /* Scroll-triggered fade */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim { opacity: 0; }
+    .anim.visible { animation: fadeUp 0.65s cubic-bezier(0.16,1,0.3,1) both; }
+
+    /* Hero initial animations */
+    .hero-left  { animation: fadeUp 0.85s 0.05s cubic-bezier(0.16,1,0.3,1) both; }
+    .hero-right { animation: fadeUp 0.85s 0.25s cubic-bezier(0.16,1,0.3,1) both; }
+
+    /* Mobile menu */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+  </style>
 </head>
 <body>
-    <div id="section-inicial" class="background">
-        <nav>
-            <h2 class="logo">Portfo<span>lio</span></h2>
-            <ul class="cabecalho-link">
-                <li><a onclick="rolarParaSecao('section-inicial')">Início</a></li>
-                <li><a onclick="rolarParaSecao('section-sobre-mim')">Sobre mim</a></li>
-                <li><a onclick="rolarParaSecao('section-meus-projetos')">Projetos</a></li>
-                <li><a onclick="rolarParaSecao('section-contato')">Contato</a></li>
-                </ul><!-- cabecalho link-->
-                <a href="assets/resume.pdf" download class="btn">Baixar CV</a>
-        </nav>
-            <div class="main">           
-                <h4>Olá, meu nome é</h4>
-                <h1>Cales <span>Junes</span></h1>
-                <h3 class="digitando">I'm a <span>Full Stack</span> Developer</h3>
-                <a onclick="rolarParaSecao('section-sobre-mim')" class="btn">Sobre mim</a>
-            </div><!--main-->
-            <aside>
-                <div class="icon-menu" onclick="abrirmenu()">
-                    <div class="menu"><i class="fa-solid fa-bars"></i></div>
-                </div><!--icon-menu-->
-                <div id="barra-menu">
-                    <ul>
-                        <li><a onclick="rolarParaSecao('section-inicial')">Início</a></li>
-                        <li><a onclick="rolarParaSecao('section-sobre-mim')">Sobre mim</a></li>
-                        <li><a onclick="rolarParaSecao('section-meus-projetos')">Projetos</a></li>
-                        <li><a onclick="rolarParaSecao('section-contato')">Contato</a></li>
-                        <a href="assets/resume.pdf" download class="c-icon">Baixar CV</a>
-                    </ul>
 
-                </div><!--barra-menu-->
-            </aside>
-    </div><!--background-->
+  <!-- ═══════════════════ NAV ═══════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-transparent transition-all duration-300"
+       style="backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <a href="#" class="font-display font-extrabold text-xl" style="color: var(--text); letter-spacing: -0.02em;">
+        CJ<span style="color:var(--accent)">.</span>
+      </a>
 
-    
-    <section id="section-sobre-mim" class="background-color-sobre">
-        <div class="main-sobre">
-            <div class="main-img">
-                <img src="./images/pic_sobre.webp">
-            </div><!--img-->
+      <div class="hidden md:flex items-center gap-8 text-sm" style="color: var(--muted);">
+        <a href="#sobre"       class="hover:text-white transition-colors">Sobre</a>
+        <a href="#competencias" class="hover:text-white transition-colors">Skills</a>
+        <a href="#experiencia" class="hover:text-white transition-colors">Experiência</a>
+        <a href="#projetos"    class="hover:text-white transition-colors">Projetos</a>
+        <a href="#contato"     class="hover:text-white transition-colors">Contato</a>
+      </div>
 
-            <div class="text-sobre">
-                <h2>Sobre mim</h2>
-                <h5>Desenvolvedor <span>Full Stack</span></h5>
-                <p>Olá, eu sou um desenvolvedor Full Stack PHP, com experiência em Laravel e Nuxt.js, e atualmente estou aprendendo React e Next.js.</p>
-                <br>
-                <p>Desde os meus 10 anos de idade, tenho uma paixão pela tecnologia e por como ela pode transformar o mundo em que vivemos.</p>
-                <br>
-                <p>Atualmente, estou focado em aprender React e Next.js, para expandir ainda mais meu conjunto de habilidades e capacidades como desenvolvedor Full Stack.</p>
-                <a onclick="rolarParaSecao('section-meus-projetos')" class="btn">Projetos</a>
-            </div>
-        </div><!--main-sobre-->
-    </section><!--background-color-sobre-->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="./public/resume.pdf" download
+           class="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2 rounded-full border transition-all duration-300"
+           style="border-color: var(--amber); color: var(--amber);"
+           onmouseover="this.style.background='var(--amber)'; this.style.color='var(--bg)';"
+           onmouseout="this.style.background='transparent'; this.style.color='var(--amber)';">
+          <span class="icon-[tabler--download] size-4"></span>
+          Currículo
+        </a>
+        <a href="mailto:cales.j.rodrigues@gmail.com"
+           class="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2 rounded-full border transition-all duration-300"
+           style="border-color: var(--accent); color: var(--accent);"
+           onmouseover="this.style.background='var(--accent)'; this.style.color='var(--bg)';"
+           onmouseout="this.style.background='transparent'; this.style.color='var(--accent)';">
+          Fale comigo
+        </a>
+      </div>
 
-    <div id="section-meus-projetos" class="container-projetos">
-        <div class="title">
-            <h2>Meus Projetos!</h2>
-        </div><!--title-->
-        <div class="caixa">
-            <div class="card">
-                <i class="fa-solid fa-cash-register"></i>
-                <h5>Sistema de E-commerce</h5>
-                <p>Sistema de e-commerce que inclui autenticação do usuário. Para isso, foi criada uma API utilizando o framework Laravel. No front-end, foi utilizado o Next.js para consumir essa API.</p>
-                <a href="https://github.com/calesj/laravel-ecommerce-nextjs" class="btn" target="_blank" >Acessar</a>
-            </div><!--card-->
-
-            <div class="card">
-                <i class="fa-solid fa-car"></i>
-                <h5>Sistema de Veiculos (React)</h5>
-                <p>Sistema de gerenciamento de veiculos, foi criada uma API utilizando o framework Laravel. No front-end, foi utilizado o React.js para consumir essa API.</p>
-                <a href="https://github.com/calesj/gerenciamento-de-veiculos" target="_blank" class="btn">Acessar</a>
-            </div><!--card-->
-
-            <div class="card">
-                <i class="fa-solid fa-car"></i>
-                <h5>Sistema de Veiculos (Vue.js)</h5>
-                <p>Sistema de gerenciamento de veiculos, foi criada uma API utilizando o framework Laravel. No front-end, foi utilizado o Nuxt.js(framework do vue.js) para consumir essa API.</p>
-                <a href="https://github.com/calesj/vehicle-system" target="_blank" class="btn">Acessar</a>
-            </div><!--card-->
-        </div><!--caixa-->
-    </div><!--container-projetos-->
-   <footer>
-    <h6>
-        Cales Junes
-    </h6>
-    <p>
-        Entre em contato comigo:
-    </p>
-    <div class="redes-sociais" id="section-contato">
-        <a href="https://www.linkedin.com/in/cales-junes/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/calesj" target="_blank"><i class="fa-brands fa-github"></i></a>
-    </div><!--redes-sociais-->
-
-    <div class="copyright">
-        <p>Copyright by Cales Junes</p>
+      <button class="md:hidden transition-colors" style="color: var(--muted);"
+              onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              aria-label="Menu">
+        <span class="icon-[tabler--menu-2] size-6 block"></span>
+      </button>
     </div>
-   </footer>
 
-   <script src="script/script.js"></script>
-   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div id="mobile-menu" class="md:hidden flex-col px-5 pb-5 gap-4 text-sm border-t"
+         style="border-color: var(--border); color: var(--muted);">
+      <a href="#sobre"        class="hover:text-white transition-colors py-1.5" onclick="document.getElementById('mobile-menu').classList.remove('open')">Sobre</a>
+      <a href="#competencias" class="hover:text-white transition-colors py-1.5" onclick="document.getElementById('mobile-menu').classList.remove('open')">Skills</a>
+      <a href="#experiencia"  class="hover:text-white transition-colors py-1.5" onclick="document.getElementById('mobile-menu').classList.remove('open')">Experiência</a>
+      <a href="#projetos"     class="hover:text-white transition-colors py-1.5" onclick="document.getElementById('mobile-menu').classList.remove('open')">Projetos</a>
+      <a href="#contato"      class="hover:text-white transition-colors py-1.5" onclick="document.getElementById('mobile-menu').classList.remove('open')">Contato</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="relative min-h-screen flex items-center pt-20 dot-grid overflow-hidden">
+    <div class="hero-mesh"></div>
+
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 w-full py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+        <!-- Left -->
+        <div class="hero-left">
+          <div class="section-label mb-6 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full animate-pulse" style="background: var(--accent);"></span>
+            Disponível para novos projetos
+          </div>
+
+          <h1 class="font-display font-extrabold leading-none mb-5" style="font-size: clamp(3.2rem, 7.5vw, 6rem); letter-spacing: -0.035em; color: var(--text);">
+            Cales<br>
+            <span style="color: var(--accent);">Junes</span>
+          </h1>
+
+          <div class="flex items-center gap-3 mb-6">
+            <div class="h-px w-10" style="background: var(--accent);"></div>
+            <span class="text-lg font-medium" style="color: var(--muted);">Desenvolvedor PHP &amp; Laravel</span>
+          </div>
+
+          <p class="text-base leading-relaxed mb-8 max-w-[500px]" style="color: #A4A4B4;">
+            Back-end specialist com <strong style="color: var(--text);">5+ anos</strong> de experiência
+            construindo APIs RESTful escaláveis, arquiteturas
+            <strong style="color: var(--text);">multi-tenant</strong> e automações
+            em plataformas SaaS de alta demanda.
+          </p>
+
+          <div class="flex flex-wrap gap-3 mb-12">
+            <a href="#experiencia"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300"
+               style="background: var(--accent); color: var(--bg);"
+               onmouseover="this.style.boxShadow='0 0 28px rgba(0,212,177,0.45)'; this.style.background='#00bfa0';"
+               onmouseout="this.style.boxShadow='none'; this.style.background='var(--accent)';">
+              Ver Experiência
+              <span class="icon-[tabler--arrow-right] size-4"></span>
+            </a>
+            <a href="https://linkedin.com/in/cales-junes/" target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm border transition-all duration-300"
+               style="border-color: var(--border); color: var(--text);"
+               onmouseover="this.style.borderColor='var(--accent)';"
+               onmouseout="this.style.borderColor='var(--border)';">
+              <span class="icon-[tabler--brand-linkedin] size-4"></span>
+              LinkedIn
+            </a>
+            <a href="https://github.com/calesj" target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm border transition-all duration-300"
+               style="border-color: var(--border); color: var(--text);"
+               onmouseover="this.style.borderColor='var(--accent)';"
+               onmouseout="this.style.borderColor='var(--border)';">
+              <span class="icon-[tabler--brand-github] size-4"></span>
+              GitHub
+            </a>
+            <a href="./public/resume.pdf" download
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300"
+               style="background: var(--amber); color: var(--bg);"
+               onmouseover="this.style.boxShadow='0 0 28px rgba(255,184,0,0.45)'; this.style.background='#e6a600';"
+               onmouseout="this.style.boxShadow='none'; this.style.background='var(--amber)';">
+              <span class="icon-[tabler--download] size-4"></span>
+              Currículo
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-6 pt-8 border-t" style="border-color: var(--border);">
+            <div>
+              <div class="font-display font-extrabold text-3xl" style="color: var(--text);">5+</div>
+              <div class="text-xs mt-1 leading-snug" style="color: var(--muted);">Anos de<br>experiência</div>
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-3xl" style="color: var(--text);">4</div>
+              <div class="text-xs mt-1 leading-snug" style="color: var(--muted);">Empresas<br>atendidas</div>
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-3xl" style="color: var(--accent);">SaaS</div>
+              <div class="text-xs mt-1 leading-snug" style="color: var(--muted);">Multi-tenant<br>specialist</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Photo -->
+        <div class="hero-right flex justify-center lg:justify-end">
+          <div class="photo-wrap">
+            <div style="width: clamp(240px, 32vw, 400px); aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; border: 1px solid var(--border);">
+              <img src="./public/pic_sobre.webp"
+                   alt="Cales Junes Rodrigues"
+                   style="width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: grayscale(15%) contrast(1.05);">
+            </div>
+
+            <!-- Floating stack badge -->
+            <div style="position: absolute; bottom: 28px; left: -20px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 12px 16px; backdrop-filter: blur(12px);">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="icon-[tabler--brand-php] size-5" style="color: var(--accent);"></span>
+                <span class="text-sm font-semibold" style="color: var(--text);">PHP 8+</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="icon-[tabler--brand-laravel] size-5" style="color: #FF4433;"></span>
+                <span class="text-sm font-semibold" style="color: var(--text);">Laravel</span>
+              </div>
+            </div>
+
+            <!-- Top right badge -->
+            <div style="position: absolute; top: 20px; right: -16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 8px 14px;">
+              <div class="flex items-center gap-2">
+                <span class="icon-[tabler--server] size-4" style="color: var(--amber);"></span>
+                <span class="text-xs font-semibold" style="color: var(--text);">Back-end</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-xs"
+         style="color: var(--muted); animation: fadeUp 1s 0.8s both; opacity: 0;">
+      scroll
+      <span class="icon-[tabler--chevron-down] size-4 animate-bounce"></span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SOBRE ═══════════════════ -->
+  <section id="sobre" class="py-24">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-14">
+
+        <div class="lg:col-span-2 anim">
+          <span class="section-label">// sobre mim</span>
+          <h2 class="font-display font-bold mt-4 mb-6" style="font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.025em; line-height: 1.15; color: var(--text);">
+            Construindo sistemas que<br>
+            <span style="color: var(--accent);">escalam sob pressão</span>
+          </h2>
+          <p class="text-base leading-relaxed mb-4" style="color: #A4A4B4;">
+            Desenvolvedor Back-end especializado em PHP e Laravel, com histórico comprovado na entrega
+            de sistemas SaaS robustos, integração com APIs externas e otimização de performance em
+            ambientes de alta demanda.
+          </p>
+          <p class="text-base leading-relaxed" style="color: #A4A4B4;">
+            Atuo em squads ágeis (Scrum/Kanban) com foco em separação de responsabilidades, redução de
+            acoplamento e manutenibilidade de código. Experiência com Docker, CI/CD, MySQL e ecossistema
+            Laravel (Horizon, Livewire, Inertia.js).
+          </p>
+        </div>
+
+        <div class="space-y-3 anim">
+          <a href="mailto:cales.j.rodrigues@gmail.com" class="flex items-center gap-3 p-4 rounded-xl border transition-all duration-250" style="border-color: var(--border); background: var(--surface); color: #A4A4B4;"
+             onmouseover="this.style.borderColor='var(--accent)'; this.querySelector('.lbl').style.color='var(--accent)';"
+             onmouseout="this.style.borderColor='var(--border)'; this.querySelector('.lbl').style.color='#A4A4B4';">
+            <span class="icon-[tabler--mail] size-5 flex-shrink-0" style="color: var(--accent);"></span>
+            <span class="lbl text-sm truncate">cales.j.rodrigues@gmail.com</span>
+          </a>
+          <a href="tel:+5511981362849" class="flex items-center gap-3 p-4 rounded-xl border transition-all duration-250" style="border-color: var(--border); background: var(--surface); color: #A4A4B4;"
+             onmouseover="this.style.borderColor='var(--accent)'; this.querySelector('.lbl').style.color='var(--accent)';"
+             onmouseout="this.style.borderColor='var(--border)'; this.querySelector('.lbl').style.color='#A4A4B4';">
+            <span class="icon-[tabler--phone] size-5 flex-shrink-0" style="color: var(--accent);"></span>
+            <span class="lbl text-sm">(11) 98136-2849</span>
+          </a>
+          <div class="flex items-center gap-3 p-4 rounded-xl border" style="border-color: var(--border); background: var(--surface); color: #A4A4B4;">
+            <span class="icon-[tabler--map-pin] size-5 flex-shrink-0" style="color: var(--accent);"></span>
+            <span class="text-sm">São Paulo, Brasil</span>
+          </div>
+          <a href="https://github.com/calesj" target="_blank" class="flex items-center gap-3 p-4 rounded-xl border transition-all duration-250" style="border-color: var(--border); background: var(--surface); color: #A4A4B4;"
+             onmouseover="this.style.borderColor='var(--accent)'; this.querySelector('.lbl').style.color='var(--accent)';"
+             onmouseout="this.style.borderColor='var(--border)'; this.querySelector('.lbl').style.color='#A4A4B4';">
+            <span class="icon-[tabler--brand-github] size-5 flex-shrink-0" style="color: var(--accent);"></span>
+            <span class="lbl text-sm">github.com/calesj</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ COMPETÊNCIAS ═══════════════════ -->
+  <section id="competencias" class="py-24" style="background: #0F0F14;">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <span class="section-label">// competências técnicas</span>
+      <h2 class="font-display font-bold mt-4 mb-12 anim" style="font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.025em; color: var(--text);">
+        Stack &amp; Ferramentas
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Back-end -->
+        <div class="exp-card p-6 anim">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--server] size-5" style="color: var(--accent);"></span>
+            </div>
+            <h3 class="font-display font-semibold text-base" style="color: var(--text);">Back-end</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">PHP 8+</span>
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">Lumen</span>
+            <span class="skill-tag">CakePHP</span>
+            <span class="skill-tag">APIs RESTful</span>
+            <span class="skill-tag">Laravel Horizon</span>
+            <span class="skill-tag">Queues/Jobs</span>
+            <span class="skill-tag">Events</span>
+          </div>
+        </div>
+
+        <!-- Front-end -->
+        <div class="exp-card p-6 anim">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(255,184,0,0.1);">
+              <span class="icon-[tabler--layout-dashboard] size-5" style="color: var(--amber);"></span>
+            </div>
+            <h3 class="font-display font-semibold text-base" style="color: var(--text);">Front-end</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">Nuxt.js</span>
+            <span class="skill-tag">Inertia.js</span>
+            <span class="skill-tag">Livewire</span>
+            <span class="skill-tag">Alpine.js</span>
+            <span class="skill-tag">TailwindCSS</span>
+            <span class="skill-tag">Bootstrap</span>
+          </div>
+        </div>
+
+        <!-- Banco de Dados -->
+        <div class="exp-card p-6 anim">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--database] size-5" style="color: var(--accent);"></span>
+            </div>
+            <h3 class="font-display font-semibold text-base" style="color: var(--text);">Banco de Dados</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MariaDB</span>
+            <span class="skill-tag">Oracle</span>
+            <span class="skill-tag">Query Optimization</span>
+          </div>
+        </div>
+
+        <!-- Infra & DevOps -->
+        <div class="exp-card p-6 anim">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(255,184,0,0.1);">
+              <span class="icon-[tabler--cloud] size-5" style="color: var(--amber);"></span>
+            </div>
+            <h3 class="font-display font-semibold text-base" style="color: var(--text);">Infra &amp; DevOps</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">GitLab</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">AWS EC2</span>
+            <span class="skill-tag">Digital Ocean</span>
+          </div>
+        </div>
+
+        <!-- Arquitetura -->
+        <div class="exp-card p-6 anim">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--sitemap] size-5" style="color: var(--accent);"></span>
+            </div>
+            <h3 class="font-display font-semibold text-base" style="color: var(--text);">Arquitetura</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Multi-tenant</span>
+            <span class="skill-tag">Microsserviços</span>
+            <span class="skill-tag">DRY</span>
+            <span class="skill-tag">Clean Code</span>
+            <span class="skill-tag">SaaS</span>
+            <span class="skill-tag">APIs externas</span>
+          </div>
+        </div>
+
+        <!-- Metodologias -->
+        <div class="exp-card p-6 anim">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(255,184,0,0.1);">
+              <span class="icon-[tabler--users-group] size-5" style="color: var(--amber);"></span>
+            </div>
+            <h3 class="font-display font-semibold text-base" style="color: var(--text);">Metodologias</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Scrum</span>
+            <span class="skill-tag">Kanban</span>
+            <span class="skill-tag">JIRA</span>
+            <span class="skill-tag">Code Review</span>
+            <span class="skill-tag">Testes automatizados</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ EXPERIÊNCIA ═══════════════════ -->
+  <section id="experiencia" class="py-24">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <span class="section-label">// experiência profissional</span>
+      <h2 class="font-display font-bold mt-4 mb-16 anim" style="font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.025em; color: var(--text);">
+        Trajetória de carreira
+      </h2>
+
+      <div class="relative">
+        <div class="timeline-line hidden lg:block"></div>
+
+        <div class="space-y-8">
+
+          <!-- Devsquad -->
+          <div class="lg:pl-20 relative anim">
+            <div class="hidden lg:block absolute" style="left: 24px; top: 28px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2.5px solid var(--bg); box-shadow: 0 0 14px rgba(0,212,177,0.7);"></div>
+
+            <div class="exp-card p-6 lg:p-8">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+                <div>
+                  <h3 class="font-display font-bold text-xl" style="color: var(--text);">Desenvolvedor Full Stack</h3>
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="font-semibold text-sm" style="color: var(--accent);">Devsquad</span>
+                    <span style="color: var(--muted);">·</span>
+                    <span class="text-sm" style="color: var(--muted);">São Paulo</span>
+                  </div>
+                </div>
+                <div class="flex flex-col sm:items-end gap-2 flex-shrink-0">
+                  <span class="inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-full border font-medium" style="border-color: var(--accent); color: var(--accent);">
+                    <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: var(--accent);"></span>
+                    Atual
+                  </span>
+                  <span class="text-sm" style="color: var(--muted);">09/2025 – presente</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">Laravel</span>
+                <span class="skill-tag">Livewire</span>
+                <span class="skill-tag">Alpine.js</span>
+                <span class="skill-tag">Tailwind</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Daisy UI</span>
+                <span class="skill-tag">Flux UI</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="p-4 rounded-2xl border" style="background: var(--surface-2); border-color: var(--border);">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="icon-[tabler--building] size-4" style="color: var(--accent);"></span>
+                    <h4 class="font-semibold text-sm" style="color: var(--text);">Sparta</h4>
+                  </div>
+                  <p class="text-xs leading-relaxed" style="color: var(--muted);">Módulos de gestão de PTO, pagamentos internos e feedbacks one-on-one.</p>
+                </div>
+                <div class="p-4 rounded-2xl border" style="background: var(--surface-2); border-color: var(--border);">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="icon-[tabler--home] size-4" style="color: var(--amber);"></span>
+                    <h4 class="font-semibold text-sm" style="color: var(--text);">Capital Connect</h4>
+                  </div>
+                  <p class="text-xs leading-relaxed" style="color: var(--muted);">Plataforma de análise imobiliária com fluxos de avaliação e financiamento.</p>
+                </div>
+                <div class="p-4 rounded-2xl border" style="background: var(--surface-2); border-color: var(--border);">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="icon-[tabler--server-2] size-4" style="color: var(--accent);"></span>
+                    <h4 class="font-semibold text-sm" style="color: var(--text);">AIX</h4>
+                  </div>
+                  <p class="text-xs leading-relaxed" style="color: var(--muted);">SaaS multi-tenant para gestão de Data Centers com isolamento de dados.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CR Remoção -->
+          <div class="lg:pl-20 relative anim">
+            <div class="hidden lg:block absolute" style="left: 24px; top: 28px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg);"></div>
+
+            <div class="exp-card p-6 lg:p-8">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+                <div>
+                  <h3 class="font-display font-bold text-xl" style="color: var(--text);">Desenvolvedor PHP Pleno</h3>
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="font-semibold text-sm" style="color: var(--accent);">CR Remoção</span>
+                    <span style="color: var(--muted);">·</span>
+                    <span class="text-sm" style="color: var(--muted);">São Paulo</span>
+                  </div>
+                </div>
+                <span class="text-sm flex-shrink-0" style="color: var(--muted);">12/2024 – 08/2025</span>
+              </div>
+
+              <p class="text-sm leading-relaxed mb-5" style="color: #A4A4B4;">
+                Integração com APIs externas e evolução do ERP interno de gestão de caçambas, melhorias de queries e otimização de processos.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">CakePHP</span>
+                <span class="skill-tag">Bootstrap</span>
+                <span class="skill-tag">Docker</span>
+              </div>
+
+              <ul class="space-y-2 text-sm" style="color: var(--muted);">
+                <li class="flex items-start gap-2"><span style="color: var(--accent);">→</span> Evolução do ERP interno de gestão de caçambas</li>
+                <li class="flex items-start gap-2"><span style="color: var(--accent);">→</span> Integração com APIs externas (DocForSign, OctaDesk)</li>
+                <li class="flex items-start gap-2"><span style="color: var(--accent);">→</span> Otimização de queries e criação de relatórios no CRM</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Me2 Softwares -->
+          <div class="lg:pl-20 relative anim">
+            <div class="hidden lg:block absolute" style="left: 24px; top: 28px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg);"></div>
+
+            <div class="exp-card p-6 lg:p-8">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+                <div>
+                  <h3 class="font-display font-bold text-xl" style="color: var(--text);">Desenvolvedor Back-end</h3>
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="font-semibold text-sm" style="color: var(--accent);">Me2 Softwares</span>
+                    <span style="color: var(--muted);">·</span>
+                    <span class="text-sm" style="color: var(--muted);">Ceará</span>
+                  </div>
+                </div>
+                <span class="text-sm flex-shrink-0" style="color: var(--muted);">07/2023 – 10/2024</span>
+              </div>
+
+              <p class="text-sm leading-relaxed mb-5" style="color: #A4A4B4;">
+                Desenvolvimento de soluções para recarga de cartões de transporte em squads alocados para clientes (Credenciado, Recarga Online, Moneyplus).
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">Laravel</span>
+                <span class="skill-tag">Nuxt.js</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Docker</span>
+              </div>
+
+              <ul class="space-y-2 text-sm" style="color: var(--muted);">
+                <li class="flex items-start gap-2"><span style="color: var(--accent);">→</span> Automações com Laravel Horizon para captura diária de eventos via API</li>
+                <li class="flex items-start gap-2"><span style="color: var(--accent);">→</span> Desenvolvimento de CMS com Nuxt.js</li>
+                <li class="flex items-start gap-2"><span style="color: var(--accent);">→</span> Planejamento e entregas em Scrum com JIRA</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Covenant IT -->
+          <div class="lg:pl-20 relative anim">
+            <div class="hidden lg:block absolute" style="left: 24px; top: 28px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg);"></div>
+
+            <div class="exp-card p-6 lg:p-8">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+                <div>
+                  <h3 class="font-display font-bold text-xl" style="color: var(--text);">Desenvolvedor Full Stack</h3>
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="font-semibold text-sm" style="color: var(--accent);">Covenant IT</span>
+                    <span style="color: var(--muted);">·</span>
+                    <span class="text-sm" style="color: var(--muted);">São Paulo</span>
+                  </div>
+                </div>
+                <span class="text-sm flex-shrink-0" style="color: var(--muted);">08/2021 – 02/2023</span>
+              </div>
+
+              <p class="text-sm leading-relaxed mb-5" style="color: #A4A4B4;">
+                Desenvolvimento e evolução de sistemas internos e aplicações web para clientes da empresa.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">Laravel</span>
+                <span class="skill-tag">Lumen</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">Nuxt.js</span>
+              </div>
+
+              <ul class="space-y-2 text-sm" style="color: var(--muted);">
+                <li class="flex items-start gap-2"><span style="color: var(--accent);">→</span> Desenvolvimento de APIs REST com Laravel/Lumen</li>
+                <li class="flex items-start gap-2"><span style="color: var(--accent);">→</span> SPAs com Vue/Nuxt — GPP (Gestão de Pessoas) e Timesheet</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PROJETOS ═══════════════════ -->
+  <section id="projetos" class="py-24" style="background: #0F0F14;">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <span class="section-label">// projetos pessoais</span>
+      <h2 class="font-display font-bold mt-4 mb-12 anim" style="font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.025em; color: var(--text);">
+        O que eu construí<br>
+        <span style="color: var(--accent);">por conta própria</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- CofrinhoPro -->
+        <div class="project-card p-6 anim">
+          <div class="flex items-start justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--coin] size-6" style="color: var(--accent);"></span>
+            </div>
+            <a href="https://cofrinhopro.com.br/" target="_blank"
+               class="flex items-center gap-1.5 text-xs font-medium transition-colors"
+               style="color: var(--muted);"
+               onmouseover="this.style.color='var(--accent)';"
+               onmouseout="this.style.color='var(--muted)';">
+              Ver projeto
+              <span class="icon-[tabler--arrow-up-right] size-3.5"></span>
+            </a>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2" style="color: var(--text);">CofrinhoPro</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color: var(--muted);">
+            Controle suas finanças pelo WhatsApp. Solução acessível para gestão financeira pessoal via chatbot.
+          </p>
+          <a href="https://cofrinhopro.com.br/" target="_blank" class="text-xs font-semibold" style="color: var(--accent);">
+            cofrinhopro.com.br →
+          </a>
+        </div>
+
+        <!-- Mercado Livre -->
+        <div class="project-card p-6 anim">
+          <div class="flex items-start justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(255,184,0,0.1);">
+              <span class="icon-[tabler--shopping-cart] size-6" style="color: var(--amber);"></span>
+            </div>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7252827988788998144/" target="_blank"
+               class="flex items-center gap-1.5 text-xs font-medium transition-colors"
+               style="color: var(--muted);"
+               onmouseover="this.style.color='var(--accent)';"
+               onmouseout="this.style.color='var(--muted)';">
+              Ver post
+              <span class="icon-[tabler--arrow-up-right] size-3.5"></span>
+            </a>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2" style="color: var(--text);">Integração Mercado Livre</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--muted);">
+            Publicação automática de produtos via API. Automação completa do fluxo de anúncios e sincronização de estoque.
+          </p>
+        </div>
+
+        <!-- Portal de Notícias -->
+        <div class="project-card p-6 anim">
+          <div class="flex items-start justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--news] size-6" style="color: var(--accent);"></span>
+            </div>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7249451483694350337/" target="_blank"
+               class="flex items-center gap-1.5 text-xs font-medium transition-colors"
+               style="color: var(--muted);"
+               onmouseover="this.style.color='var(--accent)';"
+               onmouseout="this.style.color='var(--muted)';">
+              Ver post
+              <span class="icon-[tabler--arrow-up-right] size-3.5"></span>
+            </a>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2" style="color: var(--text);">Portal de Notícias</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--muted);">
+            Informações dinâmicas integradas à API do IBGE. Portal com dados governamentais em tempo real.
+          </p>
+        </div>
+
+        <!-- Safe Clause -->
+        <div class="project-card p-6 anim">
+          <div class="flex items-start justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(255,184,0,0.1);">
+              <span class="icon-[tabler--file-check] size-6" style="color: var(--amber);"></span>
+            </div>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7363199553677778944/" target="_blank"
+               class="flex items-center gap-1.5 text-xs font-medium transition-colors"
+               style="color: var(--muted);"
+               onmouseover="this.style.color='var(--accent)';"
+               onmouseout="this.style.color='var(--muted)';">
+              Ver post
+              <span class="icon-[tabler--arrow-up-right] size-3.5"></span>
+            </a>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2" style="color: var(--text);">Safe Clause</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--muted);">
+            Análise inteligente de contratos com IA para identificar cláusulas de risco e proteger usuários em acordos contratuais.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FORMAÇÃO ═══════════════════ -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <span class="section-label">// formação acadêmica</span>
+      <h2 class="font-display font-bold mt-4 mb-10 anim" style="font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.025em; color: var(--text);">
+        Educação
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <div class="exp-card p-6 anim">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--school] size-5" style="color: var(--accent);"></span>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold" style="color: var(--text);">Análise e Desenvolvimento de Sistemas</h3>
+              <p class="text-sm mt-1 font-medium" style="color: var(--accent);">UNIP — Universidade Paulista</p>
+              <p class="text-sm mt-1" style="color: var(--muted);">01/2022</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card p-6 anim">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(255,184,0,0.1);">
+              <span class="icon-[tabler--certificate] size-5" style="color: var(--amber);"></span>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold" style="color: var(--text);">Técnico em Informática</h3>
+              <p class="text-sm mt-1 font-medium" style="color: var(--accent);">CEAP — Centro Educacional Assistencial Pedreira</p>
+              <p class="text-sm mt-1" style="color: var(--muted);">07/2018 – 07/2020</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONTATO / FOOTER ═══════════════════ -->
+  <footer id="contato" class="py-24 border-t" style="border-color: var(--border); background: #090910;">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+
+        <div class="anim">
+          <span class="section-label">// contato</span>
+          <h2 class="font-display font-extrabold mt-4 mb-4" style="font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -0.035em; line-height: 1.1; color: var(--text);">
+            Vamos trabalhar<br>
+            <span style="color: var(--accent);">juntos?</span>
+          </h2>
+          <p class="text-base leading-relaxed max-w-sm" style="color: var(--muted);">
+            Aberto a novas oportunidades, projetos freelance ou apenas uma boa conversa sobre tecnologia.
+          </p>
+        </div>
+
+        <div class="space-y-3 anim">
+          <a href="mailto:cales.j.rodrigues@gmail.com" class="contact-link">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--mail] size-6" style="color: var(--accent);"></span>
+            </div>
+            <div class="min-w-0">
+              <div class="text-xs mb-0.5" style="color: var(--muted);">Email</div>
+              <div class="contact-label truncate">cales.j.rodrigues@gmail.com</div>
+            </div>
+            <span class="icon-[tabler--arrow-up-right] size-5 ml-auto flex-shrink-0" style="color: var(--muted);"></span>
+          </a>
+
+          <a href="https://linkedin.com/in/cales-junes/" target="_blank" class="contact-link">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--brand-linkedin] size-6" style="color: var(--accent);"></span>
+            </div>
+            <div>
+              <div class="text-xs mb-0.5" style="color: var(--muted);">LinkedIn</div>
+              <div class="contact-label">linkedin.com/in/cales-junes</div>
+            </div>
+            <span class="icon-[tabler--arrow-up-right] size-5 ml-auto flex-shrink-0" style="color: var(--muted);"></span>
+          </a>
+
+          <a href="https://github.com/calesj" target="_blank" class="contact-link">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--brand-github] size-6" style="color: var(--accent);"></span>
+            </div>
+            <div>
+              <div class="text-xs mb-0.5" style="color: var(--muted);">GitHub</div>
+              <div class="contact-label">github.com/calesj</div>
+            </div>
+            <span class="icon-[tabler--arrow-up-right] size-5 ml-auto flex-shrink-0" style="color: var(--muted);"></span>
+          </a>
+
+          <a href="tel:+5511981362849" class="contact-link">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,212,177,0.1);">
+              <span class="icon-[tabler--phone] size-6" style="color: var(--accent);"></span>
+            </div>
+            <div>
+              <div class="text-xs mb-0.5" style="color: var(--muted);">Telefone</div>
+              <div class="contact-label">(11) 98136-2849</div>
+            </div>
+            <span class="icon-[tabler--arrow-up-right] size-5 ml-auto flex-shrink-0" style="color: var(--muted);"></span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t text-sm" style="border-color: var(--border); color: var(--muted);">
+        <span class="font-display font-extrabold text-xl" style="color: var(--text);">CJ<span style="color:var(--accent)">.</span></span>
+        <span>© 2025 Cales Junes Rodrigues</span>
+        <div class="flex items-center gap-4">
+          <a href="https://linkedin.com/in/cales-junes/" target="_blank" class="transition-colors hover:text-white">
+            <span class="icon-[tabler--brand-linkedin] size-5"></span>
+          </a>
+          <a href="https://github.com/calesj" target="_blank" class="transition-colors hover:text-white">
+            <span class="icon-[tabler--brand-github] size-5"></span>
+          </a>
+          <a href="mailto:cales.j.rodrigues@gmail.com" class="transition-colors hover:text-white">
+            <span class="icon-[tabler--mail] size-5"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════ -->
+  <script src="./node_modules/flyonui/flyonui.js"></script>
+  <script>
+    // Nav background on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.style.background = 'rgba(11,11,15,0.92)';
+        navbar.style.borderBottomColor = 'var(--border)';
+      } else {
+        navbar.style.background = 'transparent';
+        navbar.style.borderBottomColor = 'transparent';
+      }
+    }, { passive: true });
+
+    // Scroll-triggered fade-up for .anim elements
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const siblings = Array.from(el.parentElement.querySelectorAll('.anim:not(.visible)'));
+          const delay = siblings.indexOf(el) * 80;
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, delay);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>

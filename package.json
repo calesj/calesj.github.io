@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "flyonui": "^2.4.1",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@iconify-json/tabler": "^1.2.33",
+    "@iconify/tailwind4": "^1.2.3"
+  }
+}
